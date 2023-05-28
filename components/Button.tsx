@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { StyleSheet, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 type TButtonProps = {
 	label: string;
@@ -18,37 +18,16 @@ export const Button: FC<TButtonProps> = ({ label, icon, pain = false }) => {
 		);
 	}
 	return (
-		<View style={styles.container}>
-			<Pressable style={styles.button}>
+		<View className="w-[320px] border-2 border-yellow-400 h-[68px] justify-center items-center rounded-xl p-0.5">
+			<Pressable
+				className="flex flex-row bg-white border rounded-xl h-full w-full items-center justify-center"
+				style={{ gap: 4 }}
+			>
 				{icon && icon}
 				<Text>{label}</Text>
 			</Pressable>
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		width: 320,
-		height: 68,
-		alignItems: "center",
-		justifyContent: "center",
-		borderColor: "yellow",
-		borderWidth: 3,
-		borderRadius: 20,
-		padding: 3,
-	},
-	button: {
-		flexDirection: "row",
-		backgroundColor: "white",
-		borderColor: "white",
-		borderRadius: 15,
-		gap: 4,
-		width: "100%",
-		height: "100%",
-		justifyContent: "center",
-		alignItems: "center",
-	},
-});
 
 export default Button;
